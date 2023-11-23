@@ -41,30 +41,38 @@ limitations under the License.
 
 <!-- /.intro -->
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/array-base-binary3d
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
--   If you are using Deno, visit the [`deno` branch][deno-url].
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
+To use in Observable,
+
 ```javascript
-var binary3d = require( '@stdlib/array-base-binary3d' );
+binary3d = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/array-base-binary3d@umd/browser.js' )
+```
+
+To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
+
+```javascript
+var binary3d = require( 'path/to/vendor/umd/array-base-binary3d/index.js' )
+```
+
+To include the bundle in a webpage,
+
+```html
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-base-binary3d@umd/browser.js"></script>
+```
+
+If no recognized module system is present, access bundle contents via the global scope:
+
+```html
+<script type="text/javascript">
+(function () {
+    window.binary3d;
+})();
+</script>
 ```
 
 #### binary3d( arrays, shape, fcn )
@@ -110,8 +118,13 @@ The function accepts the following arguments:
 
 <!-- eslint no-undef: "error" -->
 
-```javascript
-var discreteUniform = require( '@stdlib/random-base-discrete-uniform' ).factory;
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@umd/browser.js"></script>
+<script type="text/javascript">
+(function () {.factory;
 var filled3dBy = require( '@stdlib/array-base-filled3d-by' );
 var zeros3d = require( '@stdlib/array-base-zeros3d' );
 var add = require( '@stdlib/math-base-ops-add' );
@@ -130,6 +143,11 @@ console.log( z );
 
 binary3d( [ x, y, z ], shape, add );
 console.log( z );
+
+})();
+</script>
+</body>
+</html>
 ```
 
 </section>
